@@ -9,7 +9,7 @@
 `source .venv/bin/activate`
 
 ## What I run to test the onnx model:
-`python playground/open_duck_mini_v2/mujoco_infer.py --onnx_model_path ./BEST_WALK_ONNX.onnx`
+`python -m playground.waddle.mujoco_infer --onnx_model_path ./WADDLE_ALRIGHT_ONNX_340.onnx`
 
 ## To train an onnx model:
-`python playground/open_duck_mini_v2/runner.py`
+`python -m playground.waddle.runner`
