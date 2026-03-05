@@ -254,7 +254,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model_path",
         type=str,
-        default="playground/waddle/xmls/scene_flat_terrain_backlash.xml",
+        default="playground/waddle/xmls/scene_flat_terrain.xml",
+        # default="playground/waddle/xmls/scene_rough_terrain_NObacklash.xml",
     )
     parser.add_argument("--standing", action="store_true", default=False)
 
