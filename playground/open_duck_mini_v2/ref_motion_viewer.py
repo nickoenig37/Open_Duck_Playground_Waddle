@@ -38,7 +38,7 @@ parser = argparse.ArgumentParser(description="Reference Motion Viewer")
 parser.add_argument(
     "--reference_data",
     type=str,
-    default="playground/go_bdx/data/polynomial_coefficients.pkl",
+    default="playground/open_duck_mini_v2/data/polynomial_coefficients.pkl",
     help="Path to the polynomial coefficients pickle file.",
 )
 parser.add_argument(
