@@ -9,7 +9,7 @@ from playground.common.onnx_infer import OnnxInfer
 from playground.common.poly_reference_motion_numpy import PolyReferenceMotion
 from playground.common.utils import LowPassActionFilter
 
-from playground.waddle.mujoco_infer_base import MJInferBase
+from playground.waddle_urdf.mujoco_infer_base import MJInferBase
 
 USE_MOTOR_SPEED_LIMITS = True
 
@@ -249,12 +249,12 @@ if __name__ == "__main__":
     parser.add_argument(
         "--reference_data",
         type=str,
-        default="playground/waddle/data/polynomial_coefficients_11degtrunk_inverted.pkl",
+        default="playground/waddle_urdf/data/polynomial_coefficients_11degtrunk_inverted.pkl",
     )
     parser.add_argument(
         "--model_path",
         type=str,
-        default="playground/waddle/xmls/scene_flat_terrain_backlash.xml",
+        default="playground/waddle_urdf/xmls/scene_flat_terrain.xml",
         # default="playground/waddle/xmls/scene_rough_terrain_NObacklash.xml",
     )
     parser.add_argument("--standing", action="store_true", default=False)

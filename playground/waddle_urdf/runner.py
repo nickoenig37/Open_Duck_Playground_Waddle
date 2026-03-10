@@ -33,7 +33,7 @@ import argparse
 
 from playground.common import randomize
 from playground.common.runner import BaseRunner
-from playground.waddle import joystick, standing
+from playground.waddle_urdf import joystick, standing
 
 
 class OpenDuckMiniV2Runner(BaseRunner):
@@ -69,8 +69,8 @@ def main() -> None:
         default="checkpoints",
         help="Where to save the checkpoints",
     )
-    parser.add_argument("--num_timesteps", type=int, default=300000000)
-    # parser.add_argument("--num_timesteps", type=int, default=150000000)
+    # parser.add_argument("--num_timesteps", type=int, default=300000000)
+    parser.add_argument("--num_timesteps", type=int, default=150000000)
     parser.add_argument("--env", type=str, default="joystick", help="env")
     parser.add_argument("--task", type=str, default="flat_terrain", help="Task to run")
     parser.add_argument(

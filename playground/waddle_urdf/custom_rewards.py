@@ -142,7 +142,7 @@ def reward_imitation(
         + joint_pos_rew
         + joint_vel_rew
         + contact_rew
-        + torso_orientation_rew # Previously commented out 
+        # + torso_orientation_rew
     )
 
     reward *= cmd_norm > 0.01  # No reward for zero commands.

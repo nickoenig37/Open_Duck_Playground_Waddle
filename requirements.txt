@@ -9,6 +9,5 @@ pygame>=2.6.1
 tensorflow>=2.18.0
 tf2onnx>=1.16.1
 
-// NEWEST ADDED ONES
 protobuf>=5.27.0
 git+https://github.com/google-deepmind/mujoco_playground.git@v0.0.5
