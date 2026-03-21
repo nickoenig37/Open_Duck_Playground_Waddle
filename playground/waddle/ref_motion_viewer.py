@@ -59,8 +59,8 @@ parser.add_argument(
     default="flat_terrain",
 )
 args = parser.parse_args()
-# model_path = f"playground/go_bdx/xmls/scene_mjx_{args.scene}.xml"
 model_path = f"playground/waddle/xmls/scene_{args.scene}.xml"
+# model_path = f"playground/waddle/xmls/scene_{args.scene}.xml"
 
 command = args.command
 

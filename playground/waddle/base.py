@@ -22,23 +22,43 @@ import jax
 import jax.numpy as jp
 from ml_collections import config_dict
 import mujoco
-from mujoco import mjx
+try:
+    from mujoco import mjx
+except ImportError:
+    # mujoco.mjx not available on Windows; provide a shim so type annotations don't crash
+    class _MjxShim:
+        Data = object
+        Model = object
+        def put_model(self, m): return m
+    mjx = _MjxShim()
 
-from mujoco_playground._src import mjx_env
+try:
+    from mujoco_playground._src import mjx_env as _mjx_env
+    _MjxEnvBase = _mjx_env.MjxEnv
+except Exception:
+    _mjx_env = None
+    _MjxEnvBase = object  # fallback base class when mujoco_playground unavailable
 from . import constants
+
+
+def _update_assets(assets, path, glob="*"):
+    """Local re-implementation of mjx_env.update_assets, no mujoco_playground needed."""
+    for f in epath.Path(path).glob(glob):
+        if f.is_file():
+            assets[f.name] = f.read_bytes()
 
 
 def get_assets() -> Dict[str, bytes]:
     assets = {}
-    mjx_env.update_assets(assets, constants.ROOT_PATH / "xmls", "*.xml")
-    mjx_env.update_assets(assets, constants.ROOT_PATH / "xmls" / "assets")
+    _update_assets(assets, constants.ROOT_PATH / "xmls", "*.xml")
+    _update_assets(assets, constants.ROOT_PATH / "xmls" / "assets")
     path = constants.ROOT_PATH
-    mjx_env.update_assets(assets, path, "*.xml")
-    mjx_env.update_assets(assets, path / "assets")
+    _update_assets(assets, path, "*.xml")
+    _update_assets(assets, path / "assets")
     return assets
 
 
-class OpenDuckMiniV2Env(mjx_env.MjxEnv):
+class OpenDuckMiniV2Env(_MjxEnvBase):
     """Base class for Open Duck Mini V2 environments."""
 
     def __init__(

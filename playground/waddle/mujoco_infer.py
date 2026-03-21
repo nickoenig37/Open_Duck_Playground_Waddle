@@ -249,7 +249,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--reference_data",
         type=str,
-        default="playground/waddle/data/polynomial_coefficients.pkl",
+        # default="playground/waddle/data/polynomial_coefficients_medium_default.pkl",
+        default="playground/waddle/data/polynomial_coefficients_medium_default.pkl",
     )
     parser.add_argument(
         "--model_path",

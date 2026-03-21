@@ -39,17 +39,23 @@
   </sensor>
   <!-- Additional xmls/joints_properties.xml -->
   <default>
-    <default class="sts3215">
+    <!-- <default class="sts3215">
       <geom contype="0" conaffinity="0"/>
       <joint damping="0.56" frictionloss="0.068" armature="0.027"/>
       <position kp="17.11" kv="0.0" forcerange="-3.23 3.23"/>
-    </default>
+    </default> -->
     <default class="sts3215_12v">
       <geom contype="0" conaffinity="0"/>
       <joint damping="1.05" frictionloss="0.195" armature="0.032"/>
       <position kp="46.3" kv="0.0" forcerange="-8.53 8.53"/>
       <default class="chosen_actuator"/>
-    </default>
+    </default> 
+    <!-- <default class="sts3215_12v">
+      <geom contype="0" conaffinity="0"/>
+      <joint damping="0.1" frictionloss="0.195" armature="0.02"/>
+      <position kp="40.0" kv="2.0" forcerange="-2.94 2.94"/>
+      <default class="chosen_actuator"/>
+    </default> -->
   </default>
   <worldbody>
     <body name="base" pos="0 0 0.22">
